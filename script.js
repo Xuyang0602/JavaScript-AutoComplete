@@ -417,6 +417,7 @@ $(function() {
 
   $("body").on("click", ".city-list > div", function() {
     $(".auto-complete .close").addClass("visible");
+    $(".city-list").removeClass("open");
     $(".auto-complete input")
       .val($(this).text())
       .focus();
@@ -425,11 +426,12 @@ $(function() {
 
   $(".auto-complete .close").click(function(e) {
     isFilled = false;
-    $("city-list").addClass("open");
+    $(".city-list").addClass("open");
     $(this).removeClass("visible");
     $(".auto-complete input")
       .val("")
       .focus();
+    initCityList();
   });
 
   $(".auto-complete input").on("input", function() {
